@@ -107,3 +107,22 @@ class Node:
     val = None
     def __init__(self, val):
         self.val = val
+
+# The interviewer pointed out that the above is broken, because
+# left and right and val are class variables. Things I learn in an
+# interview! With more research and talking to a friend, I realize
+# that I write all of my Python poorly; the above should be this 
+# instead  The same applies to the BST classes above; root shouldn't
+# be defined as a class variable, and should instead be defined 
+# inside init.
+
+# This still leaves me wondering how the heck you're meant to document
+# instance variables in Python in a readable way; I like the documentation
+# of things like:
+# https://github.com/openlayers/openlayers/blob/master/lib/OpenLayers/Filter/Comparison.js
+# And don't know how to get that in Python.
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
